@@ -12,3 +12,8 @@ server:
 
 polar:
   greeting: Welcome to the Local Book Catalog
+
+condition:
+  polar:
+    testdata:
+      enabled: true

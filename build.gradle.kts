@@ -29,6 +29,8 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    // https://mvnrepository.com/artifact/io.github.microutils/kotlin-logging-jvm
+    implementation("io.github.oshai:kotlin-logging-jvm:5.1.4")
 }
 
 kotlin {
@@ -46,4 +48,8 @@ configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
     }
+}
+
+tasks.named<JavaExec>("bootRun") {
+    systemProperty("spring.profiles.active", "testdata")
 }
