@@ -1,5 +1,7 @@
-package com.polarbookshop.catalogservice.domain
+package com.polarbookshop.catalogservice.web
 
+import com.polarbookshop.catalogservice.domain.Book
+import com.polarbookshop.catalogservice.domain.BookService
 import jakarta.validation.Valid
 import jakarta.validation.constraints.Pattern
 import org.springframework.http.HttpStatus

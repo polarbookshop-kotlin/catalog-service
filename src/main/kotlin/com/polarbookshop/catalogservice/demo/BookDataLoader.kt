@@ -1,7 +1,7 @@
 package com.polarbookshop.catalogservice.demo
 
 import com.polarbookshop.catalogservice.domain.Book
-import com.polarbookshop.catalogservice.domain.BookControllerAdvice
+import com.polarbookshop.catalogservice.web.BookControllerAdvice
 import com.polarbookshop.catalogservice.domain.BookRepository
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

@@ -1,5 +1,7 @@
-package com.polarbookshop.catalogservice.domain
+package com.polarbookshop.catalogservice.web
 
+import com.polarbookshop.catalogservice.domain.BookAlreadyExistsException
+import com.polarbookshop.catalogservice.domain.BookNotFoundException
 import jakarta.validation.ConstraintViolationException
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

@@ -1,5 +1,6 @@
 package com.polarbookshop.catalogservice.domain
 
+import com.polarbookshop.catalogservice.web.BookController
 import org.junit.jupiter.api.Test
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
