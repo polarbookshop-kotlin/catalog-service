@@ -17,7 +17,7 @@ jobs:
           distribution: temurin
           java-version: 17
           cache: gradle
-      - name: Build, Unit Tests and Integratoin Tests
+      - name: Build, Unit Tests and Integration Tests
         run: |
           chmod +x gradlew
           ./gradlew build
