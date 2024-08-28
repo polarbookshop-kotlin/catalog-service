@@ -1,20 +1,17 @@
 package com.polarbookshop.catalogservice.domain
 
 import com.polarbookshop.catalogservice.web.BookController
-import com.polarbookshop.catalogservice.web.BookControllerAdvice
 import org.junit.jupiter.api.Test
-import org.mockito.BDDMockito.*
-import org.mockito.Mockito
+import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
-import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.http.MediaType
-import org.springframework.http.converter.HttpMessageNotReadableException
+import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @WebMvcTest(BookController::class)
 class BookControllerMCVTest {
