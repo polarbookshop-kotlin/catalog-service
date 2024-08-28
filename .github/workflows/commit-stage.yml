@@ -21,6 +21,12 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: test-report
+          path: build/reports/tests/test/index.html
       - name: Code Vulnerability Scanning
         uses: anchore/scan-action@v3
         id: scan
