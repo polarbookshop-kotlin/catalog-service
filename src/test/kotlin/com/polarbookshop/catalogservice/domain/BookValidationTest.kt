@@ -18,14 +18,14 @@ class BookValidationTest {
 
     @Test
     fun whenAllFieldsCorrectThenValidationSucceeds(){
-        val book = Book("1234567890", "Title", "Author", 9.90)
+        val book = Book("1234567890", "Title", "Author", 9.90, null)
         val violations = validator.validate(book)
         assertThat(violations).isEmpty()
     }
 
     @Test
     fun whenIsbnNotDefinedThenValidationFails(){
-        val book = Book("", "Title", "Author", 9.90)
+        val book = Book("", "Title", "Author", 9.90, null)
         val validations = validator.validate(book)
         val message = "Invalid ISBN. Must have 10 or 13 digits"
         assertThat(validations).hasSize(1)
@@ -39,7 +39,7 @@ class BookValidationTest {
 
     @Test
     fun  whenIsbnDefinedButIncorrectThenValidationFails(){
-        val book = Book("a123456789", "Title", "Author", 9.90)
+        val book = Book("a123456789", "Title", "Author", 9.90, null)
         val validations = validator.validate(book)
         val message = "Invalid ISBN. Must have 10 or 13 digits"
         assertThat(validations).hasSize(1)
@@ -52,7 +52,7 @@ class BookValidationTest {
 
     @Test
     fun whenTitleIsNotDefinedThenValidationFails(){
-        val book = Book("0123456789", "", "Author", 9.90)
+        val book = Book("0123456789", "", "Author", 9.90, null)
         val validations = validator.validate(book)
         val message = "Title is required"
         assertThat(validations).hasSize(1)
@@ -65,7 +65,7 @@ class BookValidationTest {
 
     @Test
     fun whenAuthorIsNotDefinedThenValidationFails(){
-        val book = Book("0123456789", "Title", "", 9.90)
+        val book = Book("0123456789", "Title", "", 9.90, null)
         val validations = validator.validate(book)
         val message = "Author is required"
         assertThat(validations).hasSize(1)
@@ -78,7 +78,7 @@ class BookValidationTest {
 
     @Test
     fun whenPriceIsDefinedButNotGreaterThanZeroThenValidationFails(){
-        val book = Book("0123456789", "Title", "Author", -1.0)
+        val book = Book("0123456789", "Title", "Author", -1.0, null)
         val validations = validator.validate(book)
         val message = "Price must be greater than zero"
         assertThat(validations).hasSize(1)
@@ -91,7 +91,7 @@ class BookValidationTest {
 
     @Test
     fun whenPriceIsDefinedButZeroThenValidationFails(){
-        val book = Book("0123456789", "Title", "Author", 0.0)
+        val book = Book("0123456789", "Title", "Author", 0.0, null)
         val validations = validator.validate(book)
         val message = "Price must be greater than zero"
         assertThat(validations).hasSize(1)

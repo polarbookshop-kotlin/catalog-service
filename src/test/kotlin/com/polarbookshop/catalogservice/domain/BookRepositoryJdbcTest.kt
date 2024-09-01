@@ -25,7 +25,7 @@ class BookRepositoryJdbcTest (
     @Rollback
     fun findBookByIsbnWhenExisting(){
         val bookIsbn = "1234567899"
-        val book = Book(bookIsbn, "title", "author", 1.2)
+        val book = Book(bookIsbn, "title", "author", 1.2, null)
         jdbcAggregateTemplate.insert(book)
         val findByIsbn = bookRepository.findByIsbn(bookIsbn)
         assertThat(findByIsbn).isNotNull
@@ -37,7 +37,7 @@ class BookRepositoryJdbcTest (
     @Rollback
     fun deleteBookByIsbnWhenExisting(){
         val bookIsbn = "1234567899"
-        val book = Book(bookIsbn, "title", "author", 1.2)
+        val book = Book(bookIsbn, "title", "author", 1.2, null)
         jdbcAggregateTemplate.insert(book)
         val findByIsbn = bookRepository.deleteByIsbn(bookIsbn)
         assertThat(findByIsbn).isNotNull

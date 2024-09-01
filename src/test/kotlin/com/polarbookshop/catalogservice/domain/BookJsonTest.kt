@@ -13,7 +13,7 @@ class BookJsonTest {
 
     @Test
     fun serializeTest(){
-        val book = Book("1234567890", "Title", "Author", 9.90)
+        val book = Book("1234567890", "Title", "Author", 9.90, null)
         val jsonContent = json.write(book)
         assertThat(jsonContent).extractingJsonPathValue("@.isbn")
             .isEqualTo(book.isbn)
@@ -35,7 +35,7 @@ class BookJsonTest {
                     "price": 9.90
                 }
                 """
-        val bookOrigin = Book("1234567890", "Title", "Author", 9.90)
+        val bookOrigin = Book("1234567890", "Title", "Author", 9.90, null)
 
         val bookExpected = json.parse(content)
 

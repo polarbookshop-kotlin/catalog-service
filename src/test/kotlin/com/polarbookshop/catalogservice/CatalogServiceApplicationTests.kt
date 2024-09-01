@@ -23,7 +23,7 @@ class CatalogServiceApplicationTests
     @Test
     fun whenGetRequestWithIdThenBookReturned(){
         val bookIsbn = "1231231230"
-        val bookToCreate = Book(bookIsbn, "Title", "Author", 9.90)
+        val bookToCreate = Book(bookIsbn, "Title", "Author", 9.90, null)
         val book = webTestClient
             .post()
             .uri("/books")
@@ -44,7 +44,7 @@ class CatalogServiceApplicationTests
 
     @Test
     fun whenPostRequestThenBookCreated() {
-        val expectedBook = Book("1231231231", "Title", "Author", 9.90)
+        val expectedBook = Book("1231231231", "Title", "Author", 9.90, null)
 
         webTestClient
             .post()
@@ -61,7 +61,7 @@ class CatalogServiceApplicationTests
     @Test
     fun whenPutRequestThenBookUpdated() {
         val bookIsbn = "1231231232"
-        val bookToCreate = Book(bookIsbn, "Title", "Author", 9.90)
+        val bookToCreate = Book(bookIsbn, "Title", "Author", 9.90, null)
         val createdBook: Book = webTestClient
             .post()
             .uri("/books")
@@ -70,7 +70,7 @@ class CatalogServiceApplicationTests
             .expectStatus().isCreated()
             .expectBody(Book::class.java).value { book -> assertThat(book).isNotNull() }
             .returnResult().responseBody as Book
-        val bookToUpdate = Book(createdBook.isbn, createdBook.title, createdBook.author, 7.95)
+        val bookToUpdate = Book(createdBook.isbn, createdBook.title, createdBook.author, 7.95, null)
 
         webTestClient
             .put()
@@ -87,7 +87,7 @@ class CatalogServiceApplicationTests
     @Test
     fun whenDeleteRequestThenBookDeleted() {
         val bookIsbn = "1231231233"
-        val bookToCreate = Book(bookIsbn, "Title", "Author", 9.90)
+        val bookToCreate = Book(bookIsbn, "Title", "Author", 9.90, null)
         webTestClient
             .post()
             .uri("/books")

@@ -35,13 +35,16 @@ data class Book (
     val createdDate: Instant?,
 
     @LastModifiedDate
-    val lastModifiedDate: Instant?
+    val lastModifiedDate: Instant?,
+
+    val publisher: String?
 ){
     constructor(
         isbn: String,
         title: String,
         author: String,
-        price: Double
+        price: Double,
+        publisher: String?
     ):this(
         null,
         isbn,
@@ -50,7 +53,8 @@ data class Book (
         price,
         0,
         null,
-        null
+        null,
+        publisher
     )
 
 

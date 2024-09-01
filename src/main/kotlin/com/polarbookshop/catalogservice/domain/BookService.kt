@@ -24,7 +24,8 @@ class BookService(private val repository: BookRepository) {
                     book.price,
                     it.version,
                     it.createdDate,
-                    it.lastModifiedDate
+                    it.lastModifiedDate,
+                    book.publisher
                 )
                 repository.save(bookToUpdate)
             }
