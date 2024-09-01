@@ -1,3 +1,4 @@
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
@@ -69,5 +70,18 @@ tasks.named<BootRun>("bootRun") {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+    }
+}
+
+tasks.named<BootBuildImage>("bootBuildImage"){
+    builder = "docker.io/paketobuildpacks/builder-jammy-base"
+    imageName = project.name
+    environment = mapOf("BP_JVM_VERSION" to "17")
+    docker {
+        publishRegistry {
+            username = project.findProperty("registryUsername") as String?
+            password= project.findProperty("registryToken") as String?
+            url=project.findProperty("registryUrl") as String?
+        }
     }
 }
