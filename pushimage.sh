@@ -3,4 +3,5 @@
   --publishImage \
   -PregistryUrl=ghcr.io \
   -PregistryUsername=polarbookshop-kotlin \
-  -PregistryToken="$GHCR_TOKEN"
+  -PregistryToken="$GHCR_TOKEN" \
+  --builder ghcr.io/thomasvitale/java-builder-arm64
