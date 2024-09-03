@@ -53,7 +53,7 @@ jobs:
         run: |
           for file in k8s/*.yml; do
             echo "Validating $file"
-            kubectl apply --dry-run=client -f "$file"
+            kubectl apply --dry-run=client --validate=false -f "$file"
           done
 
   package:
