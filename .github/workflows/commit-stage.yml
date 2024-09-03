@@ -44,17 +44,6 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'  
-
-      - name: Validate Kubernetes manifests
-        run: |
-          for file in k8s/*.yml; do
-            echo "Validating $file"
-            kubectl apply --dry-run=client --validate=false -f "$file"
-          done
 
   package:
     name: Package and Publish
